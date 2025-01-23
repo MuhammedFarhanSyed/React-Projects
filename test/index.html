@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="section1" class="section">
+      <h1>Here we have a simple maths puzle</h1>
+      <h1>First select a number from 1 to 31</h1>
+      <p>if selected then click start</p>
+      <button onclick="showNextSection()">start game</button>
+    </div>
+
+    <div id="section2" class="section hidden">
+      <div>
+        <label for="1">
+          <table border="1">
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>3</td>
+                <td>5</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>11</td>
+                <td>13</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>17</td>
+                <td>19</td>
+                <td>21</td>
+                <td>23</td>
+              </tr>
+              <tr>
+                <td>25</td>
+                <td>27</td>
+                <td>29</td>
+                <td>31</td>
+              </tr>
+            </tbody>
+          </table>
+          table 1 </label
+        ><input type="checkbox" id="1" value="1" />
+      </div>
+      <div>
+        <label for="2">
+          <table border="1">
+            <tbody>
+              <tr>
+                <td>2</td>
+                <td>3</td>
+                <td>3</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>11</td>
+                <td>14</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>18</td>
+                <td>19</td>
+                <td>22</td>
+                <td>23</td>
+              </tr>
+              <tr>
+                <td>26</td>
+                <td>27</td>
+                <td>30</td>
+                <td>31</td>
+              </tr>
+            </tbody>
+          </table>
+          table 2 </label
+        ><input type="checkbox" id="2" value="2" />
+      </div>
+      <div>
+        <label for="3">
+          <table border="1">
+            <tbody>
+              <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+              </tr>
+            </tbody>
+          </table>
+          table 3 </label
+        ><input type="checkbox" id="3" value="4" />
+      </div>
+      <div>
+        <label for="4">
+          <table border="1">
+            <tbody>
+              <tr>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+              </tr>
+            </tbody>
+          </table>
+          table 4 </label
+        ><input type="checkbox" id="4" value="8" />
+      </div>
+      <div>
+        <label for="5">
+          <table border="1">
+            <tbody>
+              <tr>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+              </tr>
+              <tr>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+              </tr>
+            </tbody>
+          </table>
+          table 5 </label
+        ><input type="checkbox" id="5" value="16" />
+      </div>
+      <button onclick="addNumbers()">submit</button>
+
+      <button onclick="hideSection('section2') , addNumbers()">
+        Hide Section 2
+      </button>
+    </div>
+
+    <script>
+
+
+        var currentSectionIndex = 1;
+      var totalSections = 3;
+
+      function showNextSection() {
+        var currentSection = document.getElementById("section" + currentSectionIndex);
+        if (currentSection) {
+          currentSection.classList.add("hidden");
+        }
+
+        currentSectionIndex = (currentSectionIndex % totalSections) + 1;
+        var nextSection = document.getElementById(
+          "section" + currentSectionIndex
+        );
+        if (nextSection) {
+          nextSection.classList.remove("hidden");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      function addNumbers() {
+        var num1 = 0;
+        var num2 = 0;
+        var num3 = 0;
+        var num4 = 0;
+        var num5 = 0;
+        if (document.getElementById("1").checked) {
+          num1 = parseFloat(document.getElementById("1").value);
+        }
+        if (document.getElementById("2").checked) {
+          num2 = parseFloat(document.getElementById("2").value);
+        }
+        if (document.getElementById("3").checked) {
+          num3 = parseFloat(document.getElementById("3").value);
+        }
+        if (document.getElementById("4").checked) {
+          num4 = parseFloat(document.getElementById("4").value);
+        }
+        if (document.getElementById("5").checked) {
+          num5 = parseFloat(document.getElementById("5").value);
+        }
+        var sum = num1 + num2 + num3 + num4 + num5;
+        document.getElementById("result").innerText = "The sum is: " + sum;
+      }
+    </script>
+
+    <div id="section3" class="section hidden">
+      <h1>wow! your selected number is</h1>
+      <h1 id="result">result</h1>
+      <a href="index.html"><button onclick="addNumbers()">restart</button></a>
+      <!-- <h1 id="result"></h1> -->
+    </div>
+  </body>
+</html>

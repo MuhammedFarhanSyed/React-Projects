@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hCaptcha Integration</title>
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+    <h1>hCaptcha Integration Example</h1>
+    <div class="h-captcha" data-sitekey="0a93b6bf-a6a3-4442-99d6-bf0bafe9e8d7" data-callback="onSuccess"></div>
+    <div id="message"></div>
+    <button>click</button>
+
+    <script>
+        let verify = 0
+        function onSuccess(response) {
+            verify = 1
+        }
+document.querySelector("button").addEventListener('click',()=>{
+    if (verify==1) {
+        document.getElementById("message").innerText = "hello"
+        
+    }else{
+        alert(verify)
+    }
+})
+    </script>
+</body>
+</html>
