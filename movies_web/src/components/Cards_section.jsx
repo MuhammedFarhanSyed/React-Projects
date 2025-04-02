@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Movie_card from "./Movie_card";
-import axios from "axios";
+
 import { useEffect } from "react";
 import Pagination from "./Pagination";
 
-function Cards_section() {
-  const [movies, setmovies] = useState([]);
-  const [page, setPage] = useState(1);
+function Cards_section({ addtoWishlist, removefromWishlist, wishlistedmovie ,movies ,page , setPage}) {
+  
+
+ 
+ 
+
+
+
+
   const prevPage = () => {
     if (page > 1) { setPage(page - 1);
       
@@ -16,15 +22,7 @@ function Cards_section() {
     setPage(page + 1);
   }
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=ee68dcfa5da1610d105cdade05c9abf0`
-      )
-      .then((res) => {
-        setmovies(res.data.results);
-      });
-  }, [page]);
+
   // console.log(movies);
   // // console.log(movies.backdrop_path);
   return (
@@ -33,9 +31,13 @@ function Cards_section() {
         {movies.map((movie) => {
           return (
             <Movie_card
+            movie={movie}
               poster_path={movie.backdrop_path}
               key={movie.id}
               title={movie.title}
+              addtoWishlist={addtoWishlist}
+              removefromWishlist={removefromWishlist}
+              wishlistedmovies={wishlistedmovie}
             />
           );
         })}
