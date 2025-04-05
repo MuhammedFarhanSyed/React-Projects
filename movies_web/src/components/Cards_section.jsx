@@ -32,7 +32,7 @@ function Cards_section({ addtoWishlist, removefromWishlist, wishlistedmovie ,mov
           return (
             <Movie_card
             movie={movie}
-              poster_path={movie.backdrop_path}
+              poster_path={movie.poster_path}
               key={movie.id}
               title={movie.title}
               addtoWishlist={addtoWishlist}

@@ -10,9 +10,13 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Wishlist from "./components/Wishlist";
 import Pagination from "./components/Pagination";
 import { useEffect, useState } from "react";
+import Searchedmovies from "./components/Searchedmovies";
+import { useContext } from "react";
+import { MovieContext } from "./components/Context";
 
 function App() {
    const [movies, setmovies] = useState([]);
+    const [searchmovie, setSearchmovie] = useState(0);
     const [page, setPage] = useState(1);
      useEffect(() => {
        axios
@@ -47,10 +51,13 @@ function App() {
   
   return (
     <>
+   <MovieContext.Provider value={{ searchmovie, setSearchmovie }}>
       <div className=" min-h-[100vh] bg-black text-white position-relative">
+        
         <BrowserRouter>
           <Navbar />
           <Routes>
+            <Route path="/Searchedmovies" element={<Searchedmovies />} />
             <Route path="/wishlist" element={<Wishlist wishlistedmovie={wishlistedmovie} removefromWishlist={removefromWishlist}/>} />
             <Route
               path="/"
@@ -62,7 +69,9 @@ function App() {
             />
           </Routes>
         </BrowserRouter>
+       
       </div>
+      </MovieContext.Provider>
     </>
   );
 }

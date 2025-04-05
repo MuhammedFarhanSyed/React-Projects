@@ -36,7 +36,7 @@ function Wishlist({ wishlistedmovie, removefromWishlist }) {
               <th> movie</th>
               <th>name</th>
               <th>rating</th>
-              <th>genre</th>
+            
               <th>Remove</th>
             </tr>
           </thead>
@@ -52,7 +52,8 @@ function Wishlist({ wishlistedmovie, removefromWishlist }) {
                   <th>
                     <div className="w-full h-full flex justify-center items-center p-3">
                       <div
-                        className="w-[70px] h-[70px] rounded-xl border-1  duration-500 bg-center bg-cover bg-no-repeat"
+                        className="w-[100px] h-[70px] rounded-xl hover:border-1  duration-300 bg-center bg-cover bg-no-repeat hover:scale-110 hover:border-gray-500 "
+                        // style={{ backgroundImage: `url(${movie.poster_path})` }}"
                         style={{
                           backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
                         }}
@@ -60,8 +61,8 @@ function Wishlist({ wishlistedmovie, removefromWishlist }) {
                     </div>
                   </th>
                   <th className="hover:scale-110 duration-300">{movie.title}</th>
-                  <th>{movie.vote_average}</th>
-                  <th>{movie.genr}</th>
+                  <th className="hover:text-blue-500">{movie.vote_average}</th>
+                 
                   <th>
                     <div className="w-full h-full flex justify-center items-center ">
                       <div
